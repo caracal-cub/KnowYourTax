@@ -9,28 +9,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="bottom"
+        tools:layout_editor_absoluteX="-25dp"
+        tools:layout_editor_absoluteY="112dp">
 
         <EditText
             android:id="@+id/income"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:hint="Income"/>
+            android:layout_marginTop="20dp"
+            android:hint="Income" />
 
         <EditText
-            android:id="@+id/basicpay"
+            android:id="@+id/basicPay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:hint="Basic Pay"/>
+            android:layout_marginTop="20dp"
+            android:hint="Basic Pay" />
+
+        <CheckBox android:id="@+id/metro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/metro"
+            />
+
+        <CheckBox android:id="@+id/seniorCitizen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/senior_citizen"
+            />
 
         <Button
             android:id="@+id/calculate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="Calculate"/>
+            android:text="@string/main_activity_button"
+            android:onClick="runCalculation"/>
 
     </LinearLayout>
 
