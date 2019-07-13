@@ -3,4 +3,12 @@
     <string name="main_activity_button">Calculate</string>
     <string name="senior_citizen">Senior Citizen</string>
     <string name="metro">Metro</string>
+    <string name="HintText">Hint Text</string>
+    <string name="professionalTax">Professional Tax</string>
+    <string name="HRA">HRA</string>
+    <string name="conveyance">Conveyance</string>
+    <string name="income">Annual Income</string>
+    <string name="basicPay">Basic Pay per Month</string>
+
+
 </resources>
