@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="bottom"
+        android:gravity="center"
         tools:layout_editor_absoluteX="-25dp"
         tools:layout_editor_absoluteY="112dp">
 
@@ -21,6 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/income"
+            android:layout_margin="10dp"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -37,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/basicPay"
+            android:layout_margin="10dp"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -44,30 +46,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:imeOptions="actionNext" />
+                android:nextFocusDown="@+id/metro" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox android:id="@+id/metro"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/metro"
-            />
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:gravity="center">
 
-        <CheckBox android:id="@+id/seniorCitizen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/senior_citizen"
-            />
+            <CheckBox android:id="@+id/metro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/metro"
+                style="@style/RoundedToggleButton"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                />
+
+            <CheckBox android:id="@+id/seniorCitizen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/senior_citizen"
+                style="@style/RoundedToggleButton"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/calculate"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="@string/main_activity_button"
-            android:onClick="runCalculation"/>
+            android:layout_height="70dp"
+            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:onClick="runCalculation"
+            android:text="@string/main_activity_button" />
 
     </LinearLayout>
 

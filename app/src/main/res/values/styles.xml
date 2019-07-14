@@ -17,4 +17,11 @@
         <item name="boxBackgroundColor">@android:color/white</item>
     </style>
 
+    <style name="RoundedToggleButton">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:background">@drawable/toggle_button_background</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:button">@android:color/transparent</item>
+    </style>
+
 </resources>

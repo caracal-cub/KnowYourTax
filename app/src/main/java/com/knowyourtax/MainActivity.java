@@ -40,20 +40,34 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity", "Calculation Button clicked!");
         if(TextUtils.isEmpty(income.getText())){
             Toast toast=Toast.makeText(getApplicationContext(),"Fill income",Toast.LENGTH_SHORT);
-            toast.setMargin(50,50);
             toast.show();
         }else if(TextUtils.isEmpty(basicPay.getText())) {
             Toast toast = Toast.makeText(getApplicationContext(), "Fill Basic pay", Toast.LENGTH_SHORT);
-            toast.setMargin(50, 50);
             toast.show();
         }else {
 
             Intent intent = new Intent(this, ReportActivity.class);
-            intent.putExtra("income", income.getText());
-            intent.putExtra("basicPay", income.getText());
+            intent.putExtra("income", getIntFromEditText(income));
+            intent.putExtra("basicPay", getIntFromEditText(basicPay));
             intent.putExtra("seniorCitizen", seniorCitizen.isChecked());
             intent.putExtra("metro", metro.isChecked());
             startActivity(intent);
         }
+    }
+
+    public int getIntFromEditText(EditText editText){
+
+        int outInt = 0;
+
+        try{
+            String inpStr = editText.getText().toString();
+            inpStr = inpStr.replace(",","");
+            outInt = Integer.parseInt(inpStr);
+
+        }catch (Exception e){
+            Log.e(e.getClass().getSimpleName(),"getIntFromEditText()", e);
+        }
+
+        return outInt;
     }
 }
