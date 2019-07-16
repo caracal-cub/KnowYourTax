@@ -95,9 +95,9 @@ public class ReportActivity extends AppCompatActivity {
                 TableRow.LayoutParams.MATCH_PARENT,
                 TableRow.LayoutParams.WRAP_CONTENT));
 
-        dataRow.addView(getHeaderView("Income Tax"));
-        dataRow.addView(getHeaderView("100"));
-        dataRow.addView(getHeaderView("1200"));
+        dataRow.addView(getDataView("Income Tax"));
+        dataRow.addView(getDataView("100"));
+        dataRow.addView(getDataView("1200"));
 
         tableLayout.addView(dataRow);
 
