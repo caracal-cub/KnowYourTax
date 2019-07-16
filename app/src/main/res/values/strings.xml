@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">KnowYourTax</string>
     <string name="main_activity_button">Calculate</string>
     <string name="senior_citizen">Senior Citizen</string>
@@ -9,6 +10,6 @@
     <string name="conveyance">Conveyance</string>
     <string name="income">Annual Income</string>
     <string name="basicPay">Basic Pay per Month</string>
-
+    <string name="foodVouchers">Food Vouchers</string>
 
 </resources>
