@@ -47,27 +47,27 @@ public class MainActivity extends AppCompatActivity {
         }else {
 
             Intent intent = new Intent(this, ReportActivity.class);
-            intent.putExtra("income", getIntFromEditText(incomeEdit));
-            intent.putExtra("basicPay", getIntFromEditText(basicPayEdit));
+            intent.putExtra("income", getDoubleFromEditText(incomeEdit));
+            intent.putExtra("basicPay", getDoubleFromEditText(basicPayEdit));
             intent.putExtra("seniorCitizen", seniorCitizenChkBox.isChecked());
             intent.putExtra("metro", metroChkBox.isChecked());
             startActivity(intent);
         }
     }
 
-    public int getIntFromEditText(EditText editText){
+    public double getDoubleFromEditText(EditText editText){
 
-        int outInt = 0;
+        double outDouble = 0;
 
         try{
             String inpStr = editText.getText().toString();
             inpStr = inpStr.replace(",","");
-            outInt = Integer.parseInt(inpStr);
+            outDouble = Double.parseDouble(inpStr);
 
         }catch (Exception e){
             Log.e(e.getClass().getSimpleName(),"getIntFromEditText()", e);
         }
 
-        return outInt;
+        return outDouble;
     }
 }

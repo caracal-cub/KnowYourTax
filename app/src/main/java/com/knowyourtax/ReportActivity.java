@@ -23,8 +23,8 @@ public class ReportActivity extends AppCompatActivity {
     private CheckBox metroChkBox;
     private TableLayout salarySplitTableLayout;
 
-    private int income;
-    private int basicPay;
+    private double income;
+    private double basicPay;
     private boolean seniorCitizen;
     private boolean metro;
 
@@ -47,8 +47,8 @@ public class ReportActivity extends AppCompatActivity {
 
             Intent intent = getIntent();
             Log.d("ReportActivity","Report activity called");
-            income = intent.getIntExtra("income", 0);
-            basicPay = intent.getIntExtra("basicPay", 0);
+            income = intent.getDoubleExtra("income", 0);
+            basicPay = intent.getDoubleExtra("basicPay", 0);
             seniorCitizen = intent.getExtras().getBoolean("seniorCitizen");
             metro = intent.getExtras().getBoolean("metro");
             Log.d("ReportActivity","Report activity created");
