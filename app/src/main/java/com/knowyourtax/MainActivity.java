@@ -13,6 +13,10 @@ import android.widget.Toast;
 
 import com.knowyourtax.common.MoneyText;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText incomeEdit;
@@ -25,15 +29,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        incomeEdit = findViewById(R.id.income);
-        incomeEdit.addTextChangedListener(new MoneyText(incomeEdit));
-
-        basicPayEdit = findViewById(R.id.basicPay);
-        basicPayEdit.addTextChangedListener(new MoneyText(basicPayEdit));
+        incomeEdit = getIncomeEditText();
+        basicPayEdit = getBasicPayEditText();
 
         seniorCitizenChkBox = findViewById(R.id.seniorCitizen);
         metroChkBox = findViewById(R.id.metro);
+    }
 
+    private EditText getIncomeEditText(){
+        EditText editText = findViewById(R.id.income);
+        editText.addTextChangedListener(new MoneyText(editText));
+        editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(!hasFocus){
+                    double value = getDoubleFromEditText(incomeEdit);
+                    if(value > 0){
+                        Log.e(this.getClass().getSimpleName(), "formatting value " + value);
+
+                        double dValue = new BigDecimal(value/48).setScale(3, RoundingMode.HALF_UP).doubleValue();
+                        basicPayEdit.setText(Double.toString(dValue));
+                    }else{
+                        basicPayEdit.setText(Double.toString(0));
+                    }
+                }
+            }
+        });
+
+        return editText;
+    }
+
+    private EditText getBasicPayEditText(){
+        EditText editText = findViewById(R.id.basicPay);
+        editText.addTextChangedListener(new MoneyText(editText));
+        return editText;
     }
 
     public void runCalculation(View view){
@@ -70,4 +99,5 @@ public class MainActivity extends AppCompatActivity {
 
         return outDouble;
     }
+
 }
