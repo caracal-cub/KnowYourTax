@@ -59,7 +59,7 @@ public class ReportActivity extends AppCompatActivity {
             seniorCitizenChkBox.setChecked(seniorCitizen);
             metroChkBox.setChecked(metro);
 
-            populateSalarySplit(salarySplitTableLayout);
+//            populateSalarySplit(salarySplitTableLayout);
 
         }catch (Exception e){
             Log.e(e.getClass().getSimpleName(),"getIntFromEditText()", e);
