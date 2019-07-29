@@ -9,6 +9,62 @@ public class Calculator {
     private double gratuity;
     private double providentFund;
     private double EPF_EPS;
+    private double medicalBills;
+    private double conveyance;
+    private double HRA;
+    private double otherDeductions;
+    private double medicalInsurance;
+
+    public double getMedicalInsurance() {
+        return medicalInsurance;
+    }
+
+    public void setMedicalInsurance(double medicalInsurance) {
+        this.medicalInsurance = medicalInsurance;
+    }
+
+    public double getTaxSavingInvestments() {
+        return taxSavingInvestments;
+    }
+
+    public void setTaxSavingInvestments(double taxSavingInvestments) {
+        this.taxSavingInvestments = taxSavingInvestments;
+    }
+
+    private double taxSavingInvestments;
+
+    public double getMedicalBills() {
+        return medicalBills;
+    }
+
+    public void setMedicalBills(double medicalBills) {
+        this.medicalBills = medicalBills;
+    }
+
+    public double getConveyance() {
+        return conveyance;
+    }
+
+    public void setConveyance(double conveyance) {
+        this.conveyance = conveyance;
+    }
+
+    public double getHRA() {
+        return HRA;
+    }
+
+    public void setHRA(double HRA) {
+        this.HRA = HRA;
+    }
+
+    public double getOtherDeductions() {
+        return otherDeductions;
+    }
+
+    public void setOtherDeductions(double otherDeductions) {
+        this.otherDeductions = otherDeductions;
+    }
+
 
     public double getIncome() {
         return income;
@@ -74,5 +130,22 @@ public class Calculator {
         }
     }
 
+    public void resetCalculations(){
+        profTax = 0;
+        gratuity= 0;
+    }
+
+    public double getTaxableIncome(){
+        double taxableIncome = 0;
+        taxableIncome = getGrossSalary() - getProvidentFund() - getConveyance() - getHRA()
+                - getProfTax() - getMedicalBills() - getMedicalInsurance() - getTaxSavingInvestments() - getOtherDeductions();
+        return taxableIncome;
+    }
+
+    public double getGrossSalary(){
+        double grossSalary = 0;
+        grossSalary = getIncome() - getEPF_EPS() - getGratuity();
+        return grossSalary;
+    }
 
 }
