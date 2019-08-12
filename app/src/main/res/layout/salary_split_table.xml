@@ -3,6 +3,7 @@
     android:id="@+id/salarySplit"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#008577"
     android:stretchColumns="1">
 
     <TableRow>
@@ -44,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
         <TextView
@@ -52,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
     </TableRow>
@@ -71,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
         <TextView
@@ -79,6 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
     </TableRow>
@@ -90,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Professional Tax" />
+            android:text="Prof. Tax" />
 
         <TextView
             android:id="@+id/profTaxMonthly"
@@ -98,6 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
         <TextView
@@ -106,6 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
     </TableRow>
@@ -125,6 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
         <TextView
@@ -133,6 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
     </TableRow>
@@ -152,6 +161,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
         <TextView
@@ -160,6 +170,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
     </TableRow>
@@ -179,6 +190,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
         <TextView
@@ -187,6 +199,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:background="@drawable/cell_shape"
             android:text="0.00" />
 
     </TableRow>
