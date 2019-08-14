@@ -29,7 +29,7 @@
             android:text="Yearly" />
     </TableRow>
 
-    <TableRow>
+    <!--<TableRow>
 
         <TextView
             android:layout_width="0dp"
@@ -137,7 +137,7 @@
 
     </TableRow>
 
-    <TableRow>
+    <TableRow android:orientation="vertical">
 
         <TextView
             android:layout_width="0dp"
@@ -153,6 +153,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="0.00" />
+
 
         <TextView
             android:id="@+id/PFYearly"
@@ -189,6 +190,304 @@
             android:gravity="center"
             android:text="0.00" />
 
-    </TableRow>
+    </TableRow>-->
+
+   <TableRow>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Basic Pay" />
+
+        <TextView
+            android:id="@+id/basicPayMonthly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0.00" />
+
+        <TextView
+            android:id="@+id/basicPayYearly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="0.00" />
+
+   </TableRow>
+   <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="STD Deduction" />
+
+         <TextView
+             android:id="@+id/stdDeductionMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="3333.00" />
+
+         <TextView
+             android:id="@+id/stdDeductionYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="40000.00" />
+
+   </TableRow>
+
+    <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="SEC VI A - 80  C" />
+
+         <TextView
+             android:id="@+id/SECVIA80CMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+         <TextView
+             android:id="@+id/SECVIA80CYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="SEC VI A - 80 D" />
+
+         <TextView
+             android:id="@+id/SECVIA80DMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+         <TextView
+             android:id="@+id/SECVIA80DYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow android:orientation="vertical">
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="SEC VI A - 80 DDBSC" />
+
+         <TextView
+             android:id="@+id/SECVIA80DDBSCMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+
+         <TextView
+             android:id="@+id/SECVIA80DDBSCYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="U/S 10s" />
+
+         <TextView
+             android:id="@+id/US10sMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+         <TextView
+             android:id="@+id/US10sYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="Gratuity" />
+
+         <TextView
+             android:id="@+id/ratuityMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+         <TextView
+             android:id="@+id/ratuityYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="Tel and Med reimb" />
+
+         <TextView
+             android:id="@+id/telMedreimbMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+         <TextView
+             android:id="@+id/telMedreimbYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="Professional Tax" />
+
+         <TextView
+             android:id="@+id/profTaxMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+         <TextView
+             android:id="@+id/profTaxYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow>
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="Net Taxable" />
+
+         <TextView
+             android:id="@+id/netTaxMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+         <TextView
+             android:id="@+id/netTaxYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>
+
+    <TableRow android:orientation="vertical">
+
+         <TextView
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="Tax Payable" />
+
+         <TextView
+             android:id="@+id/taxPayableMonthly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+
+         <TextView
+             android:id="@+id/taxPayableYearly"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:layout_weight="1"
+             android:gravity="center"
+             android:text="0.00" />
+
+     </TableRow>-->
 
 </TableLayout>

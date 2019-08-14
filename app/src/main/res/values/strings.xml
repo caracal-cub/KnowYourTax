@@ -12,4 +12,14 @@
     <string name="basicPay">Basic Pay per Month</string>
     <string name="foodVouchers">Food Vouchers</string>
 
+    <string name="tax_payer_prompt">Tax Payer</string>
+    <string-array name="tax_payer">
+        <item>Select</item>
+        <item>Individual</item>
+        <item>HUF</item>
+        <item>Domestic Companny</item>
+        <item>Foreign Company</item>
+    </string-array>
+
+
 </resources>

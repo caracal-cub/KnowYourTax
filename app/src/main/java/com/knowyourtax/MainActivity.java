@@ -2,26 +2,38 @@ package com.knowyourtax;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.knowyourtax.common.Calculator;
 import com.knowyourtax.common.MoneyText;
+import com.knowyourtax.model.TaxComponentModel;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Observable;
+import java.util.Observer;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Observer, View.OnClickListener {
 
     private EditText incomeEdit;
     private EditText basicPayEdit;
     private CheckBox seniorCitizenChkBox;
     private CheckBox metroChkBox;
+    //private Button calculateBtn; //For MVC
+    private TaxComponentModel taxCompModel;
+    private Spinner taxPayerSpinner;
+    ArrayAdapter<CharSequence> taxPayerAdaptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
         seniorCitizenChkBox = findViewById(R.id.seniorCitizen);
         metroChkBox = findViewById(R.id.metro);
+        //For MVC
+        /*calculateBtn = (Button) findViewById(R.id.calculate);
+        calculateBtn.setOnClickListener(this);*/
+
+        taxCompModel = new TaxComponentModel();
+        taxCompModel.addObserver(new ReportActivity());
+
+        taxPayerSpinner = findViewById(R.id.taxpayer);
+        taxPayerAdaptor = ArrayAdapter.createFromResource(this, R.array.tax_payer, android.R.layout.simple_spinner_item);
+        taxPayerAdaptor.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        taxPayerSpinner.setAdapter(taxPayerAdaptor);
     }
 
     private EditText getIncomeEditText(){
@@ -79,7 +102,14 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("basicPay", getDoubleFromEditText(basicPayEdit));
             intent.putExtra("seniorCitizen", seniorCitizenChkBox.isChecked());
             intent.putExtra("metro", metroChkBox.isChecked());
+
+            taxCompModel.setIncome(incomeEdit.getText().toString());
+            taxCompModel.setBasicPay(basicPayEdit.getText().toString());
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("model", taxCompModel);
+            intent.putExtras(bundle);
             startActivity(intent);
+
         }
     }
 
@@ -99,4 +129,26 @@ public class MainActivity extends AppCompatActivity {
         return outDouble;
     }
 
+    //For MVC
+    @Override
+    public void onClick(View view) {
+        Log.d("MainActivity", "Calculation Button clicked!");
+        if(TextUtils.isEmpty(incomeEdit.getText())){
+            Toast toast=Toast.makeText(getApplicationContext(),"Fill income",Toast.LENGTH_SHORT);
+            toast.show();
+        }else if(TextUtils.isEmpty(basicPayEdit.getText())) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Fill Basic pay", Toast.LENGTH_SHORT);
+            toast.show();
+        }else {
+            Intent intent = new Intent(this, ReportActivity.class);
+            startActivity(intent);
+            taxCompModel.setIncome(incomeEdit.getText().toString());
+            taxCompModel.notifyTheChange();
+        }
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+
+    }
 }

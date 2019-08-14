@@ -7,10 +7,11 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         tools:layout_editor_absoluteX="-25dp"
         tools:layout_editor_absoluteY="112dp">
 
@@ -20,16 +21,16 @@
             style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/income"
             android:layout_margin="10dp"
+            android:hint="@string/income"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/income"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:imeOptions="actionNext" />
+                android:imeOptions="actionNext"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -37,8 +38,8 @@
             style="@style/TextInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/basicPay"
             android:layout_margin="10dp"
+            android:hint="@string/basicPay"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -49,32 +50,73 @@
                 android:nextFocusDown="@+id/metro" />
         </com.google.android.material.textfield.TextInputLayout>
 
+
+
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_margin="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <CheckBox android:id="@+id/metro"
+            <CheckBox
+                android:id="@+id/metro"
+                style="@style/RoundedToggleButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/metro"
-                style="@style/RoundedToggleButton"
-                android:layout_weight="1"
                 android:layout_marginRight="5dp"
-                />
+                android:layout_weight="1"
+                android:text="@string/metro" />
 
-            <CheckBox android:id="@+id/seniorCitizen"
+            <CheckBox
+                android:id="@+id/seniorCitizen"
+                style="@style/RoundedToggleButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/senior_citizen"
-                style="@style/RoundedToggleButton"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
-                />
+                android:text="@string/senior_citizen" />
 
         </LinearLayout>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/spinner"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Tax Payer"
+            android:tooltipText="Tax Payer"
+            android:outlineAmbientShadowColor="@color/colorAccent"
+            app:errorEnabled="true">
+
+            <Spinner
+                android:id="@+id/taxpayer"
+                android:layout_width="376dp"
+                android:layout_height="46dp"
+                android:entries="@array/tax_payer"
+                android:prompt="@string/tax_payer_prompt" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CheckBox" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CheckBox" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CheckBox" />
 
         <Button
             android:id="@+id/calculate"
@@ -83,9 +125,55 @@
             android:layout_margin="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="runCalculation"
-            android:text="@string/main_activity_button" />
+            android:text="@string/main_activity_button"
+            android:onClick="runCalculation"/>
 
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

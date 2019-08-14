@@ -14,8 +14,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.knowyourtax.common.MoneyText;
+import com.knowyourtax.model.TaxComponentModel;
 
-public class ReportActivity extends AppCompatActivity {
+import java.util.Observable;
+import java.util.Observer;
+
+public class ReportActivity extends AppCompatActivity implements Observer {
 
     private EditText incomeEdit;
     private EditText basicPayEdit;
@@ -27,6 +31,8 @@ public class ReportActivity extends AppCompatActivity {
     private double basicPay;
     private boolean seniorCitizen;
     private boolean metro;
+
+    private TaxComponentModel taxCompModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +65,10 @@ public class ReportActivity extends AppCompatActivity {
             seniorCitizenChkBox.setChecked(seniorCitizen);
             metroChkBox.setChecked(metro);
 
-//            populateSalarySplit(salarySplitTableLayout);
+            Bundle bundle = intent.getBundleExtra("model");
+            taxCompModel = (TaxComponentModel) bundle.get("model");
+
+            populateSalarySplit(salarySplitTableLayout);
 
         }catch (Exception e){
             Log.e(e.getClass().getSimpleName(),"getIntFromEditText()", e);
@@ -68,7 +77,7 @@ public class ReportActivity extends AppCompatActivity {
     }
 
     private void populateSalarySplit(TableLayout tableLayout){
-        tableLayout.removeAllViewsInLayout();
+       /* tableLayout.removeAllViewsInLayout();
 
         TableRow headerRow = new TableRow(this);
 
@@ -105,7 +114,45 @@ public class ReportActivity extends AppCompatActivity {
         vline1.setLayoutParams(new
                 TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 1));
         vline1.setBackgroundColor(Color.WHITE);
-        tableLayout.addView(vline1);  // add line below each row
+        tableLayout.addView(vline1);  // add line below each row*/
+
+
+
+        TableRow tableRow = (TableRow) tableLayout.getChildAt(5);
+        /*TextView textView = new TextView(this);
+        textView.setText(String.valueOf(income));
+        tableRow.addView(textView, 2);*/
+        View view = (TextView) tableRow.getChildAt(2);
+        ((TextView) view).setText(String.valueOf(income));
+        /*tableRow.addView(view, 2);*/
+
+        TextView textView = null;
+
+        textView = findViewById(R.id.basicPayMonthly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleBasicPay()));
+        textView = findViewById(R.id.basicPayYearly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleBasicPay()*12));
+
+        textView = findViewById(R.id.SECVIA80CMonthly);
+        textView.setText(String.valueOf(taxCompModel.getSECVIA80CMonthly()));
+        textView = findViewById(R.id.SECVIA80CYearly);
+        textView.setText(String.valueOf(taxCompModel.getSECVIA80CMonthly() * 12));
+
+        textView = findViewById(R.id.SECVIA80DMonthly);
+        textView.setText(String.valueOf(taxCompModel.getSECVIA80DMonthly() * 12));
+        textView = findViewById(R.id.SECVIA80DYearly);
+        textView.setText(String.valueOf(taxCompModel.getSECVIA80DMonthly() * 12));
+
+        //SECVIA80DDBSCMonthly - left unchanged
+
+        //HRA to be coded
+
+
+
+
+
+
+
 
     }
 
@@ -123,5 +170,12 @@ public class ReportActivity extends AppCompatActivity {
         textView.setTextColor(Color.RED);
         textView.setTextSize(15);
         return textView;
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+        //this.onCreate();
+        incomeEdit.setText("10,001");
+
     }
 }
