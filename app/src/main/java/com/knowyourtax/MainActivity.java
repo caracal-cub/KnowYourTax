@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements Observer, View.On
             taxCompModel.setBasicPay(basicPayEdit.getText().toString());
             Bundle bundle = new Bundle();
             bundle.putSerializable("model", taxCompModel);
-            intent.putExtras(bundle);
+            intent.putExtra("bundle", bundle);
             startActivity(intent);
 
         }

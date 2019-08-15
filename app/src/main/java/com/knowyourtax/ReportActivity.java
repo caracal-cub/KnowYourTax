@@ -23,6 +23,7 @@ public class ReportActivity extends AppCompatActivity implements Observer {
 
     private EditText incomeEdit;
     private EditText basicPayEdit;
+    private EditText hRAEdit;
     private CheckBox seniorCitizenChkBox;
     private CheckBox metroChkBox;
     private TableLayout salarySplitTableLayout;
@@ -47,6 +48,9 @@ public class ReportActivity extends AppCompatActivity implements Observer {
             basicPayEdit = findViewById(R.id.basicPay);
             basicPayEdit.addTextChangedListener(new MoneyText(basicPayEdit));
 
+            hRAEdit = findViewById(R.id.HRA);
+            hRAEdit.addTextChangedListener(new MoneyText(hRAEdit));
+
             seniorCitizenChkBox = findViewById(R.id.seniorCitizen);
             metroChkBox = findViewById(R.id.metro);
             salarySplitTableLayout = (TableLayout) findViewById(R.id.salarySplit);
@@ -62,11 +66,14 @@ public class ReportActivity extends AppCompatActivity implements Observer {
 
             incomeEdit.setText(String.valueOf(income));
             basicPayEdit.setText(String.valueOf(basicPay));
+
+
             seniorCitizenChkBox.setChecked(seniorCitizen);
             metroChkBox.setChecked(metro);
 
-            Bundle bundle = intent.getBundleExtra("model");
+            Bundle bundle = (Bundle) intent.getBundleExtra("bundle");
             taxCompModel = (TaxComponentModel) bundle.get("model");
+            hRAEdit.setText(String.valueOf(taxCompModel.getDoubleHRAReceived()));
 
             populateSalarySplit(salarySplitTableLayout);
 
@@ -139,20 +146,51 @@ public class ReportActivity extends AppCompatActivity implements Observer {
         textView.setText(String.valueOf(taxCompModel.getSECVIA80CMonthly() * 12));
 
         textView = findViewById(R.id.SECVIA80DMonthly);
-        textView.setText(String.valueOf(taxCompModel.getSECVIA80DMonthly() * 12));
+        textView.setText(String.valueOf(taxCompModel.getSECVIA80DMonthly()));
         textView = findViewById(R.id.SECVIA80DYearly);
         textView.setText(String.valueOf(taxCompModel.getSECVIA80DMonthly() * 12));
 
         //SECVIA80DDBSCMonthly - left unchanged
+        textView = findViewById(R.id.SECVIA80DDBSCMonthly);
+        textView.setText(String.valueOf(taxCompModel.getSECVIA80DDBSCMonthly()));
+        textView = findViewById(R.id.SECVIA80DDBSCYearly);
+        textView.setText(String.valueOf(taxCompModel.getSECVIA80DDBSCMonthly() * 12));
 
-        //HRA to be coded
+        //U/S 10
+        textView = findViewById(R.id.US10sMonthly);
+        textView.setText(String.valueOf(taxCompModel.getUS10sMonthly()));
+        textView = findViewById(R.id.US10sYearly);
+        textView.setText(String.valueOf(taxCompModel.getUS10sMonthly() * 12));
 
+        //Gratuity
+        textView = findViewById(R.id.gratuityMonthly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleGratuity()));
+        textView = findViewById(R.id.gratuityYearly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleGratuity() * 12));
 
+        //Tel & Med Reimburse
+        textView = findViewById(R.id.telMedreimbMonthly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleTelMedReimbursement()));
+        textView = findViewById(R.id.telMedreimbYearly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleTelMedReimbursement() * 12));
 
+        //Prof tax
+        /*textView = findViewById(R.id.profTaxMonthly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleProfTax()));
+        textView = findViewById(R.id.profTaxYearly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleProfTax() * 12));*/
 
+        //Nettaxable
+        textView = findViewById(R.id.netTaxMonthly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleNetTaxableAmt()));
+        textView = findViewById(R.id.netTaxMonthly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleNetTaxableAmt() * 12));
 
-
-
+        //TaxPayable
+        textView = findViewById(R.id.taxPayableMonthly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleTaxPayable()));
+        textView = findViewById(R.id.taxPayableYearly);
+        textView.setText(String.valueOf(taxCompModel.getDoubleTaxPayable() * 12));
 
     }
 
